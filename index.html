@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godwin Shaju | Software Developer & Cybersecurity Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --text: #333;
+            --text-light: #666;
+            --bg: #ffffff;
+            --bg-alt: #f8f9fa;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(231, 76, 60, 0.1) 100%);
+            z-index: 1;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            font-size: 0.95em;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 25px;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-alt);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--primary);
+            font-weight: 300;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+
+        .skill-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 8px 0;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+
+        .project-header {
+            background: var(--secondary);
+            color: white;
+            padding: 20px;
+        }
+
+        .project-header h3 {
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+
+        .project-date {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .project-body {
+            padding: 25px;
+        }
+
+        .project-body p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--accent);
+        }
+
+        .experience-timeline {
+            max-width: 800px;
+            margin: 40px auto;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--secondary);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -48px;
+            top: 35px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--secondary);
+            border: 4px solid white;
+        }
+
+        .experience-item h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.4em;
+        }
+
+        .experience-meta {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .experience-item p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateX(5px);
+        }
+
+        .cert-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .cert-card p {
+            color: var(--text-light);
+            font-size: 0.95em;
+        }
+
+        .cert-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+
+        .cert-link:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 10px 0;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .experience-timeline {
+                padding-left: 30px;
+            }
+
+            .experience-item::before {
+                left: -38px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Godwin Shaju</h1>
+            <p class="subtitle">Software Developer & Cybersecurity Specialist</p>
+            <div class="contact-info">
+                <span>📍 Chalakudy, Kerala, IN</span>
+                <a href="mailto:godwinshaju01@gmail.com">✉️ Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I am a dedicated software developer with a passion for cybersecurity and privacy-focused architectures. My expertise lies in building secure applications with robust data protection, implementing strong encryption protocols, and designing threat-resistant systems. I continuously expand my knowledge in security best practices to deliver safe and reliable user experiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Network Engineering</h3>
+                    <ul>
+                        <li>Routing Protocols (OSPF, EIGRP, BGP, RIP)</li>
+                        <li>Switching Concepts (VLANs, STP, EtherChannel)</li>
+                        <li>Access Control Lists (ACLs)</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Security & Testing</h3>
+                    <ul>
+                        <li>Vulnerability Testing</li>
+                        <li>Burp Suite</li>
+                        <li>Security Architecture</li>
+                        <li>Threat Mitigation</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Development & Tools</h3>
+                    <ul>
+                        <li>Docker Containerization</li>
+                        <li>Cloud Platforms</li>
+                        <li>Debugging & Performance</li>
+                        <li>Secure API Development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Linux Infrastructure</h3>
+                        <p class="project-date">May 2025</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Set up a Preboot Execution Environment (PXE) server to enable network-based OS installation and automated deployment across multiple systems.</p>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Network Simulation</h3>
+                        <p class="project-date">August 2025</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Demonstrated proficiency in network simulation by creating and configuring a multi-office network in Cisco Packet Tracer with OSPF routing.</p>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>AWS Cloud Architecture</h3>
+                        <p class="project-date">October 2025</p>
+                    </div>
+                    <div class="project-body">
+                        <p>Networking Infrastructure Design and Deployment, Access Management Strategy and Cloud Hosting Environment implementation.</p>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h3>Software Developer</h3>
+                    <p class="experience-meta">Grapes Innovative Solutions | 2023 - Present</p>
+                    <p>Developer focused on building applications with strong security, data protection, and privacy-first design. My work emphasizes secure APIs, encryption, user authentication, and threat-resistant architecture to ensure safe and reliable user experiences. Continuously developing expertise in privacy-focused architectures and industry best practices while safeguarding sensitive data and ensuring compliance with security standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2>Courses & Certifications</h2>
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <h3>IMS Cybersecurity</h3>
+                    <p>KGiSL MicroCollege | July 2025 - Present</p>
+                </div>
+                <div class="cert-card">
+                    <h3>REDHAT</h3>
+                    <p>KGiSL MicroCollege</p>
+                </div>
+                <div class="cert-card">
+                    <h3>CCNA - Introduction to Networks</h3>
+                    <p>Cisco Certification</p>
+                    <a href="https://www.credly.com/badges/6ff9e5ee-34ae-40cc-bf32-7a4a08f42adb" class="cert-link">View Badge →</a>
+                </div>
+                <div class="cert-card">
+                    <h3>CCNA - Switching, Routing, Wireless</h3>
+                    <p>Cisco Certification</p>
+                    <a href="https://www.credly.com/badges/a964b497-5b6b-48c7-87a1-db7f64bba8b0" class="cert-link">View Badge →</a>
+                </div>
+                <div class="cert-card">
+                    <h3>CCNA - Enterprise Networking</h3>
+                    <p>Cisco Certification</p>
+                    <a href="https://www.credly.com/badges/c7e39137-7a1c-4023-914e-7398a6742a59" class="cert-link">View Badge →</a>
+                </div>
+                <div class="cert-card">
+                    <h3>Cybersecurity</h3>
+                    <p>Spectrum Solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Godwin Shaju. All rights reserved.</p>
+            <p>Software Developer | Cybersecurity Specialist</p>
+        </div>
+    </footer>
+</body>
+</html>
